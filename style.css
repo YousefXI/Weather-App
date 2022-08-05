@@ -1,0 +1,119 @@
+/* ------------------ */
+/* Custom properties */
+/* ------------------ */
+
+:root {
+   --primary: #53b3ef;
+   --secondary: #e9c08a;
+   --gray: #d0dae3;
+   --dark-gray: #464646;
+   --light: #ffffff;
+}
+
+/* ------------------ */
+/* Reset */
+/* ------------------ */
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: "Poppins", sans-serif;
+}
+
+/* Reset margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+   margin: 0;
+}
+
+/* images */
+img,
+picture {
+   max-width: 100%;
+   display: block;
+}
+
+/* forms elements */
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+/* ---------------
+------STYLING-----
+------------------*/
+
+body {
+   line-height: 1.5;
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: var(--primary);
+   font-size: 16px;
+   font-weight: 400;
+}
+
+h2 {
+   color: var(--primary);
+   text-transform: capitalize;
+   border-bottom: 1px solid var(--gray);
+   padding: 15px 0 15px 25px;
+   font-weight: 400;
+}
+
+.container {
+   background: var(--light);
+   border-radius: 8px;
+   width: 375px;
+}
+
+.wrapper {
+   padding: 25px;
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper input {
+   padding: 12px;
+   border-radius: 5px;
+   border: 1px solid var(--gray);
+   text-align: center;
+}
+
+input:focus {
+   outline-color: var(--primary);
+   box-shadow: 0 0 4px var(--primary);
+}
+
+input:is(:focus)::placeholder {
+   opacity: 0;
+}
+
+.wrapper button {
+   cursor: pointer;
+   margin-top: 25px;
+   background: var(--primary);
+   padding: 12px;
+   border: none;
+   border-radius: 5px;
+   color: var(--light);
+}
