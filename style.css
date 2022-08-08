@@ -5,7 +5,7 @@
 :root {
    --primary: #53b3ef;
    --secondary: #e9c08a;
-   --gray: #d0dae3;
+   --gray: #bbc5cf;
    --dark-gray: #464646;
    --light: #ffffff;
 }
@@ -93,7 +93,7 @@ h2 {
 }
 
 .wrapper input {
-   padding: 12px;
+   padding: 15px;
    border-radius: 5px;
    border: 1px solid var(--gray);
    text-align: center;
@@ -110,10 +110,18 @@ input:is(:focus)::placeholder {
 
 .wrapper button {
    cursor: pointer;
-   margin-top: 25px;
+   margin-top: 35px;
    background: var(--primary);
-   padding: 12px;
+   padding: 15px;
    border: none;
    border-radius: 5px;
    color: var(--light);
+}
+
+.wrapper button:hover {
+   background: #3ea9eb;
+}
+
+.wrapper button:active {
+   background: #2094dc;
 }
