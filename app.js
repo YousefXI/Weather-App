@@ -2,6 +2,7 @@ const wrapper = document.querySelector(".wrapper");
 const inputPart = document.querySelector(".input-part");
 const inputField = document.querySelector("input");
 const inputTxt = document.querySelector(".input-txt");
+const weatherPart = document.querySelector(".weather-part");
 
 let api;
 
@@ -27,8 +28,14 @@ function fetchData() {
 
 function weatherDetails(info) {
    if (info.cod == "404") {
+      // If City Typed Doesn't Exist
+      inputTxt.classList.remove("none");
       inputTxt.classList.add("error");
       inputTxt.innerText = `${inputField.value} isn't a valid city name`;
+   } else {
+      // Else hide input part and activate weather Part
+      inputPart.classList.add("none");
+      weatherPart.classList.add("active");
    }
    console.log(info);
 }
