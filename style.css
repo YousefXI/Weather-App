@@ -103,6 +103,15 @@ h2 i {
    flex-direction: column;
 }
 
+.wrapper .input-txt {
+   display: flex;
+   justify-content: center;
+   padding: 13px;
+   border-radius: 5px;
+   margin-bottom: 20px;
+   font-weight: lighter;
+}
+
 .wrapper input {
    padding: 13px;
    border-radius: 5px;
@@ -112,7 +121,7 @@ h2 i {
 
 input:focus {
    outline-color: var(--primary);
-   box-shadow: 0 0 4px var(--primary);
+   box-shadow: 0 0 5px var(--primary);
 }
 
 input:is(:focus)::placeholder {
@@ -223,4 +232,14 @@ input:is(:focus)::placeholder {
    margin: 0;
    font-size: 17px;
    padding: 0 2px 0 1px;
+}
+
+.error {
+   background: #ffb0b1;
+}
+
+.input-txt.none {
+   display: none;
+   margin: 0;
+   padding: 0;
 }
