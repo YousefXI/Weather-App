@@ -124,6 +124,10 @@ input:focus {
    box-shadow: 0 0 5px var(--primary);
 }
 
+input::placeholder {
+   opacity: 0.6;
+}
+
 .wrapper button {
    cursor: pointer;
    margin-top: 35px;
@@ -158,6 +162,7 @@ input:focus {
    max-width: 125px;
    display: flex;
    margin: 0 auto;
+   margin-bottom: 20px;
 }
 
 .weather-part .temp {

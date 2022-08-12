@@ -4,7 +4,8 @@ const inputField = document.querySelector("input");
 const infoTxt = document.querySelector(".info-txt");
 const inputBtn = document.querySelector(".input-btn");
 const weatherPart = document.querySelector(".weather-part");
-wIcon = document.querySelector("weather-part img");
+const wIcon = document.querySelector(".weather-part img");
+const arrowBack = document.querySelector("h2 i");
 
 let api;
 
@@ -23,14 +24,12 @@ inputBtn.addEventListener("click", () => {
 
 function requestApi(city) {
    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=f53b0896eeb65abea39156ed39677942`;
-   //infoTxt.innerText = "Getting weather details..."
-   //infoTxt.classList.add("...");
-   fetch(api)
-      .then((response) => response.json())
-      .then((result) => weatherDetails(result));
+   fetchData();
 }
 
 function fetchData() {
+   //infoTxt.innerText = "Getting weather details..."
+   //infoTxt.classList.add("...");
    fetch(api)
       .then((response) => response.json())
       .then((result) => weatherDetails(result));
@@ -49,18 +48,19 @@ function weatherDetails(info) {
       const { description, id } = info.weather[0];
       const { feels_like, humidity, temp } = info.main;
 
+      // Using Custom Icon By The Id API Returns
       if (id == 800) {
-         wIcon.src == "img/clear.svg";
+         wIcon.src = "icons/clear.svg";
       } else if (id >= 200 && id <= 232) {
-         wIcon.src == "img/storm.svg";
+         wIcon.src = "icons/storm.svg";
       } else if (id >= 600 && id <= 622) {
-         wIcon.src == "img/snow.svg";
+         wIcon.src = "icons/snow.svg";
       } else if (id >= 701 && id <= 781) {
-         wIcon.src == "img/haze.svg";
-      } else if (id >= 804 && id <= 804) {
-         wIcon.src == "img/cloud.svg";
-      } else if (id >= 300 && id <= 321) {
-         wIcon.src == "img/rain.svg";
+         wIcon.src = "icons/haze.svg";
+      } else if (id >= 801 && id <= 804) {
+         wIcon.src = "icons/cloud.svg";
+      } else if ((id >= 500 && id <= 531) || (id >= 300 && id <= 321)) {
+         wIcon.src = "icons/rain.svg";
       }
 
       //Passing Values To HTML
@@ -79,3 +79,10 @@ function weatherDetails(info) {
       console.log(info);
    }
 }
+
+//Arrow To Return Back
+arrowBack.addEventListener("click", () => {
+   weatherPart.classList.remove("active");
+   inputPart.classList.remove("none");
+   inputField.value = "";
+});
