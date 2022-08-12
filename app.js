@@ -4,6 +4,7 @@ const inputField = document.querySelector("input");
 const infoTxt = document.querySelector(".info-txt");
 const inputBtn = document.querySelector(".input-btn");
 const weatherPart = document.querySelector(".weather-part");
+wIcon = document.querySelector("weather-part img");
 
 let api;
 
@@ -47,6 +48,20 @@ function weatherDetails(info) {
       const country = info.sys.country;
       const { description, id } = info.weather[0];
       const { feels_like, humidity, temp } = info.main;
+
+      if (id == 800) {
+         wIcon.src == "img/clear.svg";
+      } else if (id >= 200 && id <= 232) {
+         wIcon.src == "img/storm.svg";
+      } else if (id >= 600 && id <= 622) {
+         wIcon.src == "img/snow.svg";
+      } else if (id >= 701 && id <= 781) {
+         wIcon.src == "img/haze.svg";
+      } else if (id >= 804 && id <= 804) {
+         wIcon.src == "img/cloud.svg";
+      } else if (id >= 300 && id <= 321) {
+         wIcon.src == "img/rain.svg";
+      }
 
       //Passing Values To HTML
       weatherPart.querySelector(".temp .numb").innerText = Math.floor(temp);
