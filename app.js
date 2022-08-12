@@ -21,7 +21,7 @@ inputBtn.addEventListener("click", () => {
 });
 
 function requestApi(city) {
-   api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f53b0896eeb65abea39156ed39677942`;
+   api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=f53b0896eeb65abea39156ed39677942`;
    //infoTxt.innerText = "Getting weather details..."
    //infoTxt.classList.add("...");
    fetch(api)
@@ -48,9 +48,19 @@ function weatherDetails(info) {
       const { description, id } = info.weather[0];
       const { feels_like, humidity, temp } = info.main;
 
+      //Passing Values To HTML
+      weatherPart.querySelector(".temp .numb").innerText = Math.floor(temp);
+      weatherPart.querySelector(".weather").innerText = description;
+      weatherPart.querySelector(
+         ".location span"
+      ).innerText = `${city}, ${country}`;
+      weatherPart.querySelector(".feels .numb-2").innerText =
+         Math.floor(feels_like);
+      weatherPart.querySelector(".humidity span").innerText = `${humidity}%`;
+
       // Else Hide Input Part And Activate Weather Part
       inputPart.classList.add("none");
       weatherPart.classList.add("active");
+      console.log(info);
    }
-   console.log(info);
 }
