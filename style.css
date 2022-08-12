@@ -103,7 +103,7 @@ h2 i {
    flex-direction: column;
 }
 
-.wrapper .input-txt {
+.wrapper .info-txt {
    display: flex;
    justify-content: center;
    padding: 13px;
@@ -122,10 +122,6 @@ h2 i {
 input:focus {
    outline-color: var(--primary);
    box-shadow: 0 0 5px var(--primary);
-}
-
-input:is(:focus)::placeholder {
-   opacity: 0;
 }
 
 .wrapper button {
@@ -241,7 +237,7 @@ input:is(:focus)::placeholder {
    background: #ffb0b1;
 }
 
-.input-txt.none {
+.info-txt.none {
    display: none;
    margin: 0;
    padding: 0;

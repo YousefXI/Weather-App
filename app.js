@@ -1,7 +1,8 @@
 const wrapper = document.querySelector(".wrapper");
 const inputPart = document.querySelector(".input-part");
 const inputField = document.querySelector("input");
-const inputTxt = document.querySelector(".input-txt");
+const infoTxt = document.querySelector(".info-txt");
+const inputBtn = document.querySelector(".input-btn");
 const weatherPart = document.querySelector(".weather-part");
 
 let api;
@@ -13,8 +14,16 @@ inputField.addEventListener("keyup", (e) => {
    }
 });
 
+inputBtn.addEventListener("click", () => {
+   if (inputField.value != "") {
+      requestApi(inputField.value);
+   }
+});
+
 function requestApi(city) {
    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f53b0896eeb65abea39156ed39677942`;
+   //infoTxt.innerText = "Getting weather details..."
+   //infoTxt.classList.add("...");
    fetch(api)
       .then((response) => response.json())
       .then((result) => weatherDetails(result));
@@ -29,11 +38,17 @@ function fetchData() {
 function weatherDetails(info) {
    if (info.cod == "404") {
       // If City Typed Doesn't Exist
-      inputTxt.classList.remove("none");
-      inputTxt.classList.add("error");
-      inputTxt.innerText = `${inputField.value} isn't a valid city name`;
+      infoTxt.classList.remove("none");
+      infoTxt.classList.add("error");
+      infoTxt.innerText = `${inputField.value} isn't a valid city name`;
    } else {
-      // Else hide input part and activate weather Part
+      //Getting Properties Value From Info Object
+      const city = info.name;
+      const country = info.sys.country;
+      const { description, id } = info.weather[0];
+      const { feels_like, humidity, temp } = info.main;
+
+      // Else Hide Input Part And Activate Weather Part
       inputPart.classList.add("none");
       weatherPart.classList.add("active");
    }
