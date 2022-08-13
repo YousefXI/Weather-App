@@ -85,4 +85,5 @@ arrowBack.addEventListener("click", () => {
    weatherPart.classList.remove("active");
    inputPart.classList.remove("none");
    inputField.value = "";
+   infoTxt.classList.add("none");
 });
