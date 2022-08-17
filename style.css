@@ -72,10 +72,6 @@ body {
    font-weight: 400;
 }
 
-.input-part {
-   /* display: none; */
-}
-
 h2 {
    color: var(--primary);
    text-transform: capitalize;
